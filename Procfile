@@ -1,1 +1,1 @@
-web: java -jar target/retain.jar
+web: java -jar target/retention.jar
