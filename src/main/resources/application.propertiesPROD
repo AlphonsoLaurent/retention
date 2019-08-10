@@ -1,0 +1,14 @@
+server.port=${port:8080}
+#server.address=192.168.100.2
+spring.datasource.url=jdbc:postgresql://ec2-174-129-227-51.compute-1.amazonaws.com:5432/dbn1s6s4chhj6p
+spring.datasource.username=pfbkntpgoblful
+spring.datasource.password=f594653c1085af45afc9f5003105e94cbb238ab560954eae880bd7966a9a5b86
+spring.jpa.generate-ddl=true
+
+
+# The SQL dialect makes Hibernate generate better SQL for the chosen database
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+
+# Hibernate ddl auto (create, create-drop, validate, update)
+spring.jpa.hibernate.ddl-auto = update
+
