@@ -11,7 +11,7 @@ var User = Object.create({
 				User.fillChildrens(elem.lstCategoryDTO); 
 			});
 		}, function(dataError){
-			debugger;
+			console.error(dataError);
 		}, true);
 	},
 	fillChildrens:function(lstCategory){
@@ -24,7 +24,8 @@ var User = Object.create({
 				cpintar++;
 				if(cpintar %3 == 0)cpintar=0;
 			} 
-			var html ="<div class='rounded-circle move alert "+Const.classtyle[contador]+"' style='cursor:pointer;margin: 10px;' id='"+element.idCategory+" ' onclick='User.loadHild(this)' role='alert' > "+element.description.toUpperCase()+"</div>";
+			var html ="<div class='rounded-circle move alert "+Const.classtyle[contador]+"' style='cursor:pointer;margin: 10px;' id='"+element.idCategory+" ' onclick='User.loadHild(this)' role='alert' > "
+			+element.description.toUpperCase()+"</div>";
 			contador++;
 			if(contador % 3 == 0 )contador=0;
 			
@@ -39,7 +40,7 @@ var User = Object.create({
 		ObjectRequest.requestByAjaxJSON(Const.getUrl()+"/getChild?idParent="+athis.id, null, function(response){
 			User.fillChildrens(response.lstResponse);
 		}, function(dataError){
-			debugger;
+			console.error(dataError);
 		}, true);
 	}
 });
