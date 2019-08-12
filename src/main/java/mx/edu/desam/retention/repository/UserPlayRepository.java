@@ -6,5 +6,4 @@ import mx.edu.desam.retention.entity.UserPlay;
  
 
 public interface UserPlayRepository extends CrudRepository<UserPlay, Integer>{
-//	List<Aplicacion> findByLastName(String lastName);
 }

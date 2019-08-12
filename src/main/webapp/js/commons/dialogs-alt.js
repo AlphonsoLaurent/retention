@@ -3,9 +3,7 @@
 var DialogSWT = Object.create({
 	divDialogGral : "#dialogGral",
 	classTemp : ["col-sm-12 alert alert-success","col-sm-12 alert alert-warning","col-sm-12 alert alert-danger","col-sm-12 alert alert-info"],
-	//iconoUser:"<img style='width: 30px; height: 30px;' src='view/assets/images/1m463n.png' />",
 	createDialgo:	function (icono, tituloMsg, mensaje, botones) {
-		//
 		$.each(DialogSWT.classTemp, function(index, element){			
 			$("#div-content-message-gral").removeClass(element);
 		});

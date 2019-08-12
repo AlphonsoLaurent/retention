@@ -24,7 +24,7 @@ public interface IService<T> {
 	 * @param t
 	 * @return
 	 */
-	boolean add(T t);
+	boolean save(T t);
 
 	/***
 	 * Actualiza el elemento seleccionado

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+<script src="js/retention/category.js"></script>
+</head>
+
+<body>
+<form>
+	<div class="form-row">
+	 
+		<div class="form-group col-md-4">
+		<label for="idCategoria">Categoría</label>
+			<select id="idCategoria" class="form-control is-valid" required="required" autofocus="autofocus"></select>
+<!-- 			<div id="divIdCategoria" class="valid-feedback"></div> -->
+		</div>
+		<div class="form-group col-md-4">
+			<label for="idAnswer">Response</label> 
+			<select id="idAnswer" class="form-control is-valid" required="required">
+			</select>
+			<div id="divAnswer" class="valid-feedback"></div>
+		</div>
+		<div class="form-group col-md-4">
+			<label for="description">Description</label> 
+			<input type="text" class="form-control is-valid" id="description" placeholder="description" required="required">
+			<div class="valid-feedback"></div>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-md-4"></div>
+		<div class="form-group col-md-4">
+			<button type="button" class="btn btn-info" onclick="Category.saveCategory();">
+				      <span class="glyphicon glyphicon-floppy-disk"></span> Guardar
+				    </button>
+				</div>
+				<div class="form-group col-md-4"></div>
+			</div>
+</form> 
+
+</body>
+
+</html>

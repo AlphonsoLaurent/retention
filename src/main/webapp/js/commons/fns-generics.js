@@ -12,7 +12,23 @@
 		  };
 		}
 }()); 
-  
+
+
+var Const = Object.create({
+	prod: false,
+	context:"Retention",
+	urlDev:"http://192.168.100.3:8383/retention/",
+	urlProd:"https://retent.herokuapp.com/retention/", 
+	classtyle:["alert-success","alert-danger","alert-warning","alert-info","alert-primary","alert-secondary"],
+	getUrl:function(){
+		var urlExecution = "";
+		if(Const.prod) urlExecution =Const.urlProd;
+		else urlExecution =Const.urlDev;
+		return urlExecution;
+	}
+});
+
+
 
 /**PETICIONES DE CONSULTA**/
 var ObjectRequest = Object.create({ 
@@ -21,11 +37,11 @@ var ObjectRequest = Object.create({
 		//LoaderGral.show();
 		$.ajax({
 			contentType: "application/json",
-			dataType: 'json',
+			dataType: 'JSON',
 			cache: false, 
 			url: urlRequest,
-			data:JSON.stringify(params), // convert array to JSON
-			type: 'get',
+			data:params, // convert array to JSON
+			type: 'GET',
 			async:esperar,
 			statusCode: {
 				408: function (response) {

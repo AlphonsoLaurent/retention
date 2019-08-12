@@ -11,6 +11,17 @@ public class ResponseDTO {
 		super();
 		this.successful = successful;
 	}
+	
+	
+
+	public ResponseDTO(boolean successful, String msgSuccess, List<Object> lstResponse) {
+		super();
+		this.successful = successful;
+		this.msgSuccess = msgSuccess;
+		this.lstResponse = lstResponse;
+	}
+
+
 
 	public boolean isSuccessful() {
 		return successful;

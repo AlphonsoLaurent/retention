@@ -1,6 +1,7 @@
 package mx.edu.desam.retention.service;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -35,20 +36,31 @@ public class UserPlayServiceImpl implements IUserPlayService {
 		//1,-se consulta al usuario
 		UserPlay userPlay = (UserPlay)userRepository.findOne(tId);
 		ModelMapper modelMapper = new ModelMapper();
-		UserPlayDTO orderDto = modelMapper.map(userPlay, UserPlayDTO.class);
-
+//		UserPlayDTO usrPlayDTO = modelMapper.map(userPlay, UserPlayDTO.class);
+		UserPlayDTO usrPlayDTO = new UserPlayDTO(); 
+		usrPlayDTO.setNameUser(userPlay.getNameUser());
+		usrPlayDTO.seteMail(userPlay.getEMail());
 		
-		List<Category> lstCategory= categoryRepository.findCategoryByUser(tId);
-		Type listType = new TypeToken<List<CategoryDTO>>(){}.getType();
-		List<CategoryDTO> lstCategoryDTO = new ModelMapper().map(lstCategory, listType);
-		orderDto.setCategoryListDTO(lstCategoryDTO);
+		List<Category> lstCategory= categoryRepository.findCategoryByParent();
+//		Type listType = new TypeToken<List<CategoryDTO>>(){}.getType();
+//		List<CategoryDTO> lstCategoryDTO = new ModelMapper().map(lstCategory, listType);
 		
-		return orderDto;
+		List<CategoryDTO> lstCategoryDTO = new ArrayList<CategoryDTO>();
+		CategoryDTO categoryDTO = null;
+		for (Category category : lstCategory) {
+			categoryDTO = new CategoryDTO();
+			categoryDTO.setDescription(category.getDescription());
+			categoryDTO.setIdAnswer(category.getIdAnswer().getIdAnswer());
+			categoryDTO.setIdCategory(category.getIdCategory());
+			categoryDTO.setIdParent(0);
+			lstCategoryDTO.add(categoryDTO);
+		} 
+		usrPlayDTO.setLstCategoryDTO(lstCategoryDTO);
+		return usrPlayDTO;
 	}
 
 	@Override
-	public boolean add(UserPlayDTO t) {
-		// TODO Auto-generated method stub
+	public boolean save(UserPlayDTO t) {
 		return false;
 	}
 

@@ -8,6 +8,7 @@ package mx.edu.desam.retention.entity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,15 +17,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -32,15 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author alphonso
  */
 @Entity
-@Table(name = "user_play", schema = "playit")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "UserPlay.findAll", query = "SELECT u FROM UserPlay u")
-    , @NamedQuery(name = "UserPlay.findByIdUserp", query = "SELECT u FROM UserPlay u WHERE u.idUserp = :idUserp")
-    , @NamedQuery(name = "UserPlay.findByNameUser", query = "SELECT u FROM UserPlay u WHERE u.nameUser = :nameUser")
-    , @NamedQuery(name = "UserPlay.findByEMail", query = "SELECT u FROM UserPlay u WHERE u.eMail = :eMail")
-    , @NamedQuery(name = "UserPlay.findByPasswordUser", query = "SELECT u FROM UserPlay u WHERE u.passwordUser = :passwordUser")
-    , @NamedQuery(name = "UserPlay.findByDateLastUse", query = "SELECT u FROM UserPlay u WHERE u.dateLastUse = :dateLastUse")})
+@Table(name = "user_play", schema = "retention")
 public class UserPlay implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,7 +45,7 @@ public class UserPlay implements Serializable {
     @Size(min = 1, max = 300)
     @Column(name = "name_user")
     private String nameUser;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 300)

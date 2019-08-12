@@ -23,6 +23,12 @@ public class AnswerServiceImpl implements IAnswerService {
 		List<AnswerDTO> lstAnswerDTO = new ModelMapper().map(listAnswer, listType);
 		return lstAnswerDTO;
 	}
+	
+	
+	
+	
+	
+	
 
 	@Override
 	public AnswerDTO getById(Integer tId) {
@@ -30,7 +36,7 @@ public class AnswerServiceImpl implements IAnswerService {
 	}
 
 	@Override
-	public boolean add(AnswerDTO t) {
+	public boolean save(AnswerDTO t) {
 		return false;
 	}
 

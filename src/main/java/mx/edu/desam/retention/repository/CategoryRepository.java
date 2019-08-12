@@ -11,6 +11,9 @@ import mx.edu.desam.retention.entity.Category;
  
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer>{ 
-	@Query(value="select * from playit.category  where id_User= :idUserp order by id_Category, id_parent", nativeQuery=true)
-	List<Category> findCategoryByUser(@Param("idUserp") Integer idUserp);
+	@Query(value="select * from retention.category where id_parent= :idParent order by id_category, id_parent", nativeQuery=true)
+	List<Category> findCategoryByIdParent(@Param("idParent") Integer idParent);
+	
+	@Query(value="SELECT c FROM Category c WHERE c.idParent = null order by c.idCategory")
+	List<Category> findCategoryByParent();
 }

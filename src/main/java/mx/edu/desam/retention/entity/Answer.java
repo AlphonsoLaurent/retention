@@ -7,6 +7,7 @@ package mx.edu.desam.retention.entity;
 
 import java.io.Serializable;
 import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,13 +16,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -29,12 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author alphonso
  */
 @Entity
-@Table(name = "answer", schema = "playit")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Answer.findAll", query = "SELECT a FROM Answer a")
-    , @NamedQuery(name = "Answer.findByIdAnswer", query = "SELECT a FROM Answer a WHERE a.idAnswer = :idAnswer")
-    , @NamedQuery(name = "Answer.findByDescription", query = "SELECT a FROM Answer a WHERE a.description = :description")})
+@Table(name = "answer", schema = "retention")
 public class Answer implements Serializable {
 
     private static final long serialVersionUID = 1L;
