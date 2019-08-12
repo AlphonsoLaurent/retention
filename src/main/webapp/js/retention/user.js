@@ -37,11 +37,17 @@ var User = Object.create({
 	}, 
 	
 	loadHild: function(athis){
-		ObjectRequest.requestByAjaxJSON(Const.getUrl()+"/getChild?idParent="+athis.id, null, function(response){
-			User.fillChildrens(response.lstResponse);
-		}, function(dataError){
-			console.error(dataError);
-		}, true);
+		var id = athis.id;
+		if(id != undefined){
+			ObjectRequest.requestByAjaxJSON(Const.getUrl()+"/getChild?idParent="+athis.id, null, function(response){
+				User.fillChildrens(response.lstResponse);
+			}, function(dataError){
+				console.error(dataError);
+			}, true);
+		}else{
+			DialogSWT.msgInformativo("danger", Const.context, "No contiene información");
+		}
+		
 	}
 });
 

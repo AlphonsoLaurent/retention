@@ -22,8 +22,10 @@ var Const = Object.create({
 	classtyle:["alert-success","alert-danger","alert-warning","alert-info","alert-primary","alert-secondary"],
 	getUrl:function(){
 		var urlExecution = "";
-		if(Const.prod) urlExecution =Const.urlProd;
-		else urlExecution =Const.urlDev;
+		if(Const.prod) 
+			urlExecution =Const.urlProd;
+		else 
+			urlExecution =Const.urlDev;
 		return urlExecution;
 	}
 });
