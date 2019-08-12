@@ -15,7 +15,7 @@
 
 
 var Const = Object.create({
-	prod: false,
+	prod: true,
 	context:"Retention",
 	urlDev:"http://192.168.100.3:8383/retention/",
 	urlProd:"https://retent.herokuapp.com/retention/", 
