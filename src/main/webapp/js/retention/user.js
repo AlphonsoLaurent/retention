@@ -37,17 +37,15 @@ var User = Object.create({
 	}, 
 	
 	loadHild: function(athis){
-		var id = athis.id;
-		if(id != undefined){
 			ObjectRequest.requestByAjaxJSON(Const.getUrl()+"/getChild?idParent="+athis.id, null, function(response){
+				if(response.successful == true && response.lstResponse.length > 1){
 				User.fillChildrens(response.lstResponse);
+				}else{
+					DialogSWT.msgInformativo("danger", Const.context, "No tiene información");
+				}
 			}, function(dataError){
 				console.error(dataError);
 			}, true);
-		}else{
-			DialogSWT.msgInformativo("danger", Const.context, "No contiene información");
-		}
-		
 	}
 });
 

@@ -3,7 +3,6 @@
 var Category =Object.create({
 	getCategories:function(){
 		ObjectRequest.requestByAjaxJSON(Const.getUrl()+"/getCategories", null, function(response){
-			debugger;
 			$.each(response.lstResponse, function(idx0, elem){
 				$("#idCategoria").append("<option value='"+elem.idCategory+"'>"+elem.description+"</option>");
 			});
