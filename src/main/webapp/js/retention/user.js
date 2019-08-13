@@ -38,7 +38,7 @@ var User = Object.create({
 	
 	loadHild: function(athis){
 			ObjectRequest.requestByAjaxJSON(Const.getUrl()+"/getChild?idParent="+athis.id, null, function(response){
-				if(response.successful == true && response.lstResponse.length > 1){
+				if(response.successful == true && response.lstResponse.length >= 1){
 				User.fillChildrens(response.lstResponse);
 				}else{
 					DialogSWT.msgInformativo("danger", Const.context, "No tiene información");
